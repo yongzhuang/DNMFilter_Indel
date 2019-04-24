@@ -19,7 +19,7 @@ You'll find the executable jar file in DNMFilter_Indel/build/libs/.
    Column 1: sampleID   
    Column 2: path of .bam file  
 
-2. DNM file (.csv file, the first five columns are mandatory), comma-separated)  
+2. DNM file (.csv file, the first five columns are mandatory, comma-separated)  
    Column 1: familyID   
    Column 2: chromsome   
    Column 3: position  
@@ -37,7 +37,15 @@ You'll find the executable jar file in DNMFilter_Indel/build/libs/.
    Column 4: Maternal ID  
    Column 5: Sex (1=male; 2=female; other=unknown)  
    Column 6: Phenotype  
-   Note: The Family ID must be the same as the first column of DNM file, and the Individual ID must be the same as the first column of bam list file.  
+   Note: The Family ID must be the same as the first column of DNM file, and the Individual ID must be the same as the first column of bam list file.
+   
+5. output file (.csv file, the six columns are mandatory, comma-separated)  
+   Column 1: familyID   
+   Column 2: chromsome   
+   Column 3: position  
+   Column 4: reference allele  
+   Column 5: alternative allele
+   Column 6: prediction score
 
 # Contact 
-   yzhuangliu@gmail.com
+   yongzhuang.liu@hit.edu.cn
