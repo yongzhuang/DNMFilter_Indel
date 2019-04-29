@@ -24,3 +24,4 @@ repositories {
      jcenter()
 }
 
+war.from('src/main/java'){ include('log4j.properties')}
