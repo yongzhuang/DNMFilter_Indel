@@ -164,33 +164,24 @@ public class IndelPileup {
                 } else {
                     forwardRef++;
                 }
-                //System.out.println("refmapquality:"+mappingQuality);
                 meanRefMappingQuality += mappingQuality;
                 meanRefDistanceToThreePrime += distanceToThreePrime;
                 meanRefNearbyIndels += nearbyIndels;
-                //System.out.println("refnearbyIndels"+nearbyIndels);
                 meanRefNearbyMismatches += nearbyMismatches;
             }
         }
-        //System.out.println("altAlleleCount:"+altAlleleCount);
         meanAltMappingQuality = (int) divide(meanAltMappingQuality, altAlleleCount);
-        //System.out.println("meanAltMappingQuality"+meanAltMappingQuality);
         meanAltDistanceToThreePrime = (int) divide(meanAltDistanceToThreePrime, altAlleleCount);
         meanAltNearbyIndels = divide((int) meanAltNearbyIndels, altAlleleCount);
         meanAltNearbyMismatches = divide((int) meanAltNearbyMismatches, altAlleleCount);
         altFractionOfSoftClippedReads = divide((int) altFractionOfSoftClippedReads, altAlleleCount);
         altFractionOfMQ0Reads = divide((int) altFractionOfMQ0Reads, altAlleleCount);
-        
-        //System.out.println("refAlleleCount:"+refAlleleCount);
-        //System.out.println("meanRefMappingQuality:"+meanRefMappingQuality);
         meanRefMappingQuality = (int) divide(meanRefMappingQuality, refAlleleCount);       
         meanRefDistanceToThreePrime = (int) divide(meanRefDistanceToThreePrime, refAlleleCount);
         meanRefNearbyIndels = divide((int) meanRefNearbyIndels, refAlleleCount);
         meanRefNearbyMismatches = divide((int) meanRefNearbyMismatches, refAlleleCount);
         refFractionOfSoftClippedReads = divide((int) refFractionOfSoftClippedReads, refAlleleCount);
         refFractionOfMQ0Reads = divide((int) refFractionOfMQ0Reads, refAlleleCount);
-        //System.out.println(refFractionOfSoftClippedReads + "\t" + refAlleleCount);
-        //System.out.println("reverseRef"+reverseRef+"forwardRef"+forwardRef);
     }
     
     public int getDepth() {
@@ -413,15 +404,6 @@ public class IndelPileup {
                 }
                 if (cigarElement.getOperator() == CigarOperator.M) {
                     if (cigarElementStart <= insStart && cigarElementEnd > insStart) {
-//                        System.out.println("Sample: "+samRecord.getReadGroup().getSample());
-//                        System.out.println("Alignment Start: "+samRecord.getAlignmentStart());
-//                        System.out.println("POS: "+insStart);
-//                        System.out.println("READ: "+ samRecord.getReadString());
-//                        System.out.println("REF: "+ refAllele);
-//                        System.out.println("ALT: "+ altAllele);
-//                        System.out.println("Offset: "+ offset);   
-//                        System.out.println("CIGAR: "+ samRecord.getCigarString()); 
-                        
                         if ((offset + refAllele.length()) <= samRecord.getReadString().length()) {
                             String readString = samRecord.getReadString().substring(offset, offset + refAllele.length());
                             if (readString.equals(refAllele)) {
